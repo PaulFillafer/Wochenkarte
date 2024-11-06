@@ -8,7 +8,7 @@
 <body>
 <div style="max-width: 300px; margin: auto; padding-top: 50px;">
     <h2>Eingabeformular</h2>
-    <form action="zielseite.php" method="post">
+    <form action="wochenkarte.php" method="post">
         <div>
             <label for="feld1">Eingabefeld 1:</label>
             <input type="text" id="feld1" name="feld1" required>
