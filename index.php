@@ -1,3 +1,12 @@
+<?php
+// Überprüfen, ob der Cookie 'cookies_accepted' gesetzt ist
+if (!isset($_COOKIE['cookies_accepted']) || $_COOKIE['cookies_accepted'] != "true") {
+    header("Location: cookies.php");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
