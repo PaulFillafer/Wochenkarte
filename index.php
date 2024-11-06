@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Eingabeformular</title>
+    <title>Login - Frühstückspension</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div style="max-width: 300px; margin: auto; padding-top: 50px;">
-    <h2>Eingabeformular</h2>
-    <form action="wochenkarte.php" method="post">
-        <div>
-            <label for="feld1">Eingabefeld 1:</label>
-            <input type="text" id="feld1" name="feld1" required>
+<div class="container">
+    <h2 class="mt-5">Login</h2>
+    <form action="index.php" method="post">
+        <div class="form-group">
+            E-Mail:
+            <input type="text" class="form-control" name="email" required>
         </div>
-        <div style="margin-top: 10px;">
-            <label for="feld2">Eingabefeld 2:</label>
-            <input type="text" id="feld2" name="feld2" required>
+        <div class="form-group">
+            Passwort:
+            <input type="password" class="form-control" name="password" required>
         </div>
-        <div style="margin-top: 20px;">
-            <button type="submit">Abschicken</button>
-        </div>
+        <button type="submit" class="btn btn-primary">Anmelden</button>
     </form>
+
+    <?php
+    require 'User.php';
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $user = User::get($email, $password);
+
+        if ($user) {
+            $user->login($email, $password);
+            header("Location: wochenkarte.php");
+            exit;
+        } else {
+            echo "<p class='text-danger mt-3'>Ungültige Zugangsdaten.</p>";
+        }
+    }
+    ?>
 </div>
 </body>
 </html>

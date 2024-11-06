@@ -1,6 +1,9 @@
 <?php
 require_once 'User.php';
-
+if (!User::isLoggedIn()) {
+    header("Location: index.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
