@@ -8,7 +8,7 @@ require_once 'User.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wochenkarte - Frühstückspension</title>
+    <title>Wochenkarte</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -42,6 +42,7 @@ require_once 'User.php';
             <img src="images/Bild6.jpg" alt="Samstag: Wellington" class="img-fluid">
         </div>
     </div>
+    <a href="logout.php" class="btn btn-secondary mt-4">Abmelden</a>
 </div>
 </body>
 </html>
