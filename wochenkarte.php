@@ -1,6 +1,6 @@
 <?php
 require_once 'User.php';
-if (!User::isLoggedIn()) {
+if (!User::isLoggedIn() && !isset($_COOKIE['cookies_accepted']) || $_COOKIE['cookies_accepted'] != "true") {
     header("Location: index.php");
     exit;
 }
